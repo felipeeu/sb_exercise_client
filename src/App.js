@@ -1,6 +1,6 @@
 import "./App.css";
 import { GraphQLClient, ClientContext } from "graphql-hooks";
-import { Contacts } from "./components/Contacts";
+import { Contacts, Input } from "./components";
 const client = new GraphQLClient({
   url: "http://localhost:8000/graphql",
 });
@@ -9,7 +9,7 @@ function App() {
   return (
     <ClientContext.Provider value={client}>
       <div className="App">
-        <input />
+        <Input />
         <Contacts />
       </div>
     </ClientContext.Provider>

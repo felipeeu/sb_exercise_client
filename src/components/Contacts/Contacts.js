@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "graphql-hooks";
+import { parseBirthday, getAge } from "../../utils";
 import "./Contacts.css";
 
 const CONTACT_QUERY = `query Query($contactInput: ContactInput) {
@@ -32,12 +33,12 @@ const Contacts = () => {
             <li key={_id} className="container">
               <img
                 className="user-avatar"
-                src={require(`../assets/images/image${idx + 1}.png`)}
+                src={require(`../../assets/images/image${idx + 1}.png`)}
               />
 
               <div className="sub-container">
                 <div className="label">
-                  {name}, {birthday}, {phone_number}
+                  {name}, {getAge(parseBirthday(birthday))}, {phone_number}
                 </div>
 
                 <p className="description">{address}</p>

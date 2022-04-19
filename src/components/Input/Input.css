@@ -1,0 +1,8 @@
+.input-container{
+padding: 20px;
+display: flex;
+justify-content: center;
+}
+input{
+  padding: 10px;
+}
