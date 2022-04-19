@@ -1,7 +1,7 @@
 import "./App.css";
 import { GraphQLClient, ClientContext } from "graphql-hooks";
-import { Contacts, Input } from "./components";
 import { RecoilRoot } from "recoil";
+import { Home } from "pages";
 
 const client = new GraphQLClient({
   url: "http://localhost:8000/graphql",
@@ -12,9 +12,7 @@ function App() {
     <ClientContext.Provider value={client}>
       <RecoilRoot>
         <div className="App">
-          <h2>SB Exercise App</h2>
-          <Input />
-          <Contacts />
+          <Home />
         </div>
       </RecoilRoot>
     </ClientContext.Provider>

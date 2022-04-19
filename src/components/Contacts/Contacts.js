@@ -1,14 +1,14 @@
 import React from "react";
 import { useQuery } from "graphql-hooks";
-import { parseBirthday, getAge } from "../../utils";
+import { parseBirthday, getAge } from "utils";
 import "./Contacts.css";
 import { useRecoilValue } from "recoil";
-import { inputValueState } from "../../state/atoms";
+import { inputValueState } from "state/atoms";
 import {
   NO_RESULTS_MESSAGE,
   LOADING_MESSAGE,
   ERROR_MESSAGE,
-} from "../../constants";
+} from "constants.js";
 
 const CONTACT_QUERY = `query Query($contactInput: ContactInput) {
   contacts(filter: $contactInput) {

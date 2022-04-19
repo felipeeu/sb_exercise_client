@@ -1,5 +1,5 @@
 import React from "react";
-import { inputValueState } from "../../state/atoms";
+import { inputValueState } from "state/atoms";
 import { useRecoilState } from "recoil";
 import "./Input.css";
 
