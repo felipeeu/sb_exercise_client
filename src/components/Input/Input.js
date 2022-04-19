@@ -9,6 +9,7 @@ const Input = () => {
   return (
     <div className="input-container">
       <input
+        placeholder="Search your contacts here..."
         onChange={(e) => setInputValue(e.target.value)}
         value={inputValue}
       />

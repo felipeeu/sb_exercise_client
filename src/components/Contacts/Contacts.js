@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "graphql-hooks";
 import { parseBirthday, getAge } from "utils";
 import "./Contacts.css";
@@ -33,7 +33,8 @@ const Contacts = () => {
 
   if (loading) return LOADING_MESSAGE;
   if (error) return ERROR_MESSAGE;
-  if (data.contacts.length === 0) return NO_RESULTS_MESSAGE;
+  if (data.contacts.length === 0 && inputValue.length > 0)
+    return NO_RESULTS_MESSAGE;
 
   return (
     <ul>
@@ -44,6 +45,7 @@ const Contacts = () => {
               <img
                 className="user-avatar"
                 src={require(`../../assets/images/${picture}`)}
+                alt={`${name}`}
               />
               <div className="sub-container">
                 <div className="label">
