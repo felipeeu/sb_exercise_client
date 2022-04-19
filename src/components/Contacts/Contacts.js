@@ -31,9 +31,9 @@ const Contacts = () => {
     },
   });
 
-  if (loading) return <div>{LOADING_MESSAGE}</div>;
-  if (error) return <div>{ERROR_MESSAGE}</div>;
-  if (data.contacts.length === 0) return <div>{NO_RESULTS_MESSAGE}</div>;
+  if (loading) return LOADING_MESSAGE;
+  if (error) return ERROR_MESSAGE;
+  if (data.contacts.length === 0) return NO_RESULTS_MESSAGE;
 
   return (
     <ul>

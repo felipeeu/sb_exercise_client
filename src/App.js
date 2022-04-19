@@ -12,6 +12,7 @@ function App() {
     <ClientContext.Provider value={client}>
       <RecoilRoot>
         <div className="App">
+          <h2>SB Exercise App</h2>
           <Input />
           <Contacts />
         </div>
