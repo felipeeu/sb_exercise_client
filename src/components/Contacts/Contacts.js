@@ -4,22 +4,12 @@ import { parseBirthday, getAge } from "utils";
 import "./Contacts.css";
 import { useRecoilValue } from "recoil";
 import { inputValueState } from "state/atoms";
+import { CONTACT_QUERY } from "connectors";
 import {
   NO_RESULTS_MESSAGE,
   LOADING_MESSAGE,
   ERROR_MESSAGE,
 } from "constants.js";
-
-const CONTACT_QUERY = `query Query($contactInput: ContactInput) {
-  contacts(filter: $contactInput) {
-    _id
-    name
-    birthday
-    picture
-    address
-    phone_number
-  }
-}`;
 
 const Contacts = () => {
   const inputValue = useRecoilValue(inputValueState);
