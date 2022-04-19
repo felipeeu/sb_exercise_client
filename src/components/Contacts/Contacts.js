@@ -1,7 +1,7 @@
+import "./Contacts.css";
 import React from "react";
 import { useQuery } from "graphql-hooks";
 import { parseBirthday, getAge } from "utils";
-import "./Contacts.css";
 import { useRecoilValue } from "recoil";
 import { inputValueState } from "state/atoms";
 import { CONTACT_QUERY } from "connectors";
