@@ -2,6 +2,13 @@ import React from "react";
 import { useQuery } from "graphql-hooks";
 import { parseBirthday, getAge } from "../../utils";
 import "./Contacts.css";
+import { useRecoilValue } from "recoil";
+import { inputValueState } from "../../state/atoms";
+import {
+  NO_RESULTS_MESSAGE,
+  LOADING_MESSAGE,
+  ERROR_MESSAGE,
+} from "../../constants";
 
 const CONTACT_QUERY = `query Query($contactInput: ContactInput) {
   contacts(filter: $contactInput) {
@@ -15,32 +22,33 @@ const CONTACT_QUERY = `query Query($contactInput: ContactInput) {
 }`;
 
 const Contacts = () => {
+  const inputValue = useRecoilValue(inputValueState);
   const { loading, error, data } = useQuery(CONTACT_QUERY, {
     variables: {
       contactInput: {
-        input: "45",
+        input: inputValue,
       },
     },
   });
 
-  if (loading) return "Loading...";
-  if (error) return "Something Bad Happened";
+  if (loading) return <div>{LOADING_MESSAGE}</div>;
+  if (error) return <div>{ERROR_MESSAGE}</div>;
+  if (data.contacts.length === 0) return <div>{NO_RESULTS_MESSAGE}</div>;
+
   return (
     <ul>
       {data.contacts.map(
-        ({ _id, name, birthday, phone_number, address }, idx) => {
+        ({ _id, name, birthday, phone_number, address, picture }) => {
           return (
             <li key={_id} className="container">
               <img
                 className="user-avatar"
-                src={require(`../../assets/images/image${idx + 1}.png`)}
+                src={require(`../../assets/images/${picture}`)}
               />
-
               <div className="sub-container">
                 <div className="label">
                   {name}, {getAge(parseBirthday(birthday))}, {phone_number}
                 </div>
-
                 <p className="description">{address}</p>
               </div>
             </li>

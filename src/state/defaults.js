@@ -1,0 +1,3 @@
+const defaultInputValueState = "";
+
+export { defaultInputValueState };
