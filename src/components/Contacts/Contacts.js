@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from "graphql-hooks";
 import { parseBirthday, getAge } from "utils";
 import "./Contacts.css";
