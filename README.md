@@ -23,7 +23,7 @@ Open your browser and type `http://localhost:3000`
 
 ## Looking for contacts who are 45 years old called Romero
 
-![](./src/assets/readme/readme_image_2.png))
+![](./src/assets/readme/readme_image_2.png)
 
 ## Used packages
 
